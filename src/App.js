@@ -57,14 +57,14 @@ function Parent() {
 
   return (
     <>
-      <h3 onUpdateValue={updateParent}>Update Parent State Challenge (Using Callback)</h3>
+      <h3 >Update Parent State Challenge (Using Callback)</h3>
       <div className="wrapper">
         <div>Parent</div>
         <div className="box-wrapper">{value}</div>
       </div>
 
       <div className="wrapper">
-        <Child />
+        <Child onUpdateValue={updateParent}/>
       </div>
     </>
   );
@@ -87,8 +87,14 @@ function App() {
   const [toggle, setToggle] = React.useState(true);
 
   function toggleChange(){
-    let newState=!toggle;
-    setToggle(newState);
+    // let newState=!toggle;
+    if (toggle===true){
+      setToggle(false);
+    }
+    else{
+      setToggle(true);
+    }
+    
 
   }
   return (
@@ -102,8 +108,7 @@ function App() {
         {userList}
       </ul>
       <button onClick={toggleChange}>Hide Element Below</button>
-
-      <div>Toggle Challenge</div>
+      <div>{toggle? "Toggle Challenge":" "}</div>
       <Parent >
       <Child />
       </Parent>
