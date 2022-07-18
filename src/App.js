@@ -62,7 +62,6 @@ function Parent() {
         <div>Parent</div>
         <div className="box-wrapper">{value}</div>
       </div>
-
       <div className="wrapper">
         <Child onUpdateValue={updateParent}/>
       </div>
