@@ -1,3 +1,10 @@
+body{
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+  background-size: cover;
+  height:100px;
+  background-position: center;
+
+}
 .App {
   text-align: center;
 }
@@ -5,6 +12,9 @@
 .App-logo {
   max-width:360px;
   height: 100px;
+  margin:auto;
+  display: block;
+  margin-top: 20px;
   pointer-events: none;
 
 }
@@ -22,17 +32,25 @@ h3 {
 button {
   margin: 10px 0;
   padding: 5px 10px;
+  background:#2ecb71
 }
 
 .wrapper {
   padding: 10px;
-  border: 2px solid #efefef;
+  border: 2px solid #001920;
   margin-bottom: 10px;
+  background:#fff;
+  text-align: center;
+  max-width: 360px;
+  height: 100px;
 }
 
 .box-wrapper {
-  border: 2px solid #f76cb2;
+  border: 2px solid #001920;
+  background:#001920;
   width: max-content;
+  color:#fff;
+  text-align: center;
 }
 
 #root {
@@ -47,6 +65,7 @@ div{
 ul {
   margin-top: 5px;
   list-style: none;
+  color:#fff;
   
   
 }
