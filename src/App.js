@@ -18,61 +18,77 @@ const userList=users.map((user) =>{
 })
 
 // comment this out after completion and uncomment code below it to proceed
-function Child() {
-  return <div>This is children content</div>;
-}
+// function Child() {
+//   return <div>This is children content</div>;
+// }
 
 
 
   // Challenge: Uncomment this code to complete quiz
 
-// function Child() {
-//   return (
-//     <>
-//       <div>Child</div>
-//       <button>Change Parent Value</button>
-//     </>
-//   );
-// }
+function Child({onUpdateValue}) {
+  return (
+    <>
+      <div>Child</div>
+      <button onClick={onUpdateValue}>Change Parent Value</button>
+    </>
+  );
+}
 
-// function Parent() {
-//   const [value, setValue] = React.useState(
-//     "I need to be updated from my child"
-//   );
+function randomValues(){
+  let values="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  let generatedValues=" "
+  for (let i=0; i<values.length; i++) {
+    generatedValues += values.charAt(Math.floor(Math.random() * generatedValues.length)); //returns character from a specified index
+      }
+      return generatedValues;
+    }
 
-//   return (
-//     <>
-//       <h3>Update Parent State Challenge (Using Callback)</h3>
-//       <div className="wrapper">
-//         <div>Parent</div>
-//         <div className="box-wrapper">{value}</div>
-//       </div>
+function Parent() {
+  const [value, setValue] = React.useState(
+    "I need to be updated from my child"
+  );
 
-//       <div className="wrapper">
-//         <Child />
-//       </div>
-//     </>
-//   );
-// }
+  function updateParent(){
+    let newValue = randomValues();
+    setValue(newValue);
+}
+    
+
+  return (
+    <>
+      <h3 onUpdateValue={updateParent}>Update Parent State Challenge (Using Callback)</h3>
+      <div className="wrapper">
+        <div>Parent</div>
+        <div className="box-wrapper">{value}</div>
+      </div>
+
+      <div className="wrapper">
+        <Child />
+      </div>
+    </>
+  );
+}
 // Uncomment this to tackle quiz
 
 
 // Comment out after completion
-function Parent() {
-  return (
-    <div>
-      <h3>Parent Component</h3>
-      <Child/>
-    </div>
-  );
-}
+// function Parent() {
+//   return (
+//     <div>
+//       <h3>Parent Component</h3>
+//       <Child/>
+//     </div>
+//   );
+// }
 // Comment above code after completion
 
 function App() {
-  const [] = React.useState(true);
+  const [toggle, setToggle] = React.useState(true);
 
   function toggleChange(){
-    
+    let newState=!toggle;
+    setToggle(newState);
 
   }
   return (
@@ -88,9 +104,11 @@ function App() {
       <button onClick={toggleChange}>Hide Element Below</button>
 
       <div>Toggle Challenge</div>
-      <Parent>
+      <Parent >
       <Child />
       </Parent>
+      
+     
     </>
   );
 }
