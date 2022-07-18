@@ -1,5 +1,6 @@
 import React from "react";
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import reactjsx from "./reactjsx.png";
 import './App.css';
 
 /**
@@ -66,8 +67,9 @@ function App() {
     
     <>
     
-    <img src={logo} className="App-logo" alt="logo" />
+    <img src={reactjsx} className="App-logo" alt="logo" />
       <h3>User names</h3>
+      <p>JSX is cool!</p>
       <ul></ul>
       <button>Hide Element Below</button>
 
